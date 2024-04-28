@@ -11,14 +11,15 @@ fn main() {
         .unwrap()
         .as_secs(); // What's the use of this timestamp here?
     let your_command = format!(
-        "echo TEST_FOO={}",
+        // "Your command here with {}, please checkout exercises/tests/build.rs",
+       "rustc-env=TEST_FOO={}",
         timestamp
     );
-    println!("{}", your_command);
+    println!("cargo:{}", your_command);
 
     // In tests8, we should enable "pass" feature to make the
     // testcase return early. Fill in the command to tell
     // Cargo about that.
-    let your_command = "echo cargo:rustc-cfg=pass";
-    println!("{}", your_command);
+    let your_command = "rustc-cfg=feature=\"pass\"";
+    println!("cargo:{}", your_command);
 }
